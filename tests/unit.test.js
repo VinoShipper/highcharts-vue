@@ -21,7 +21,7 @@ describe('highcharts-vue tests', () => {
   const chart = Highcharts.charts[0]
 
   test('Wrapper should be a Vue instance.', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.exists()).toBeTruthy()
   })
 
   test('Only one chart should be created.', () => {
