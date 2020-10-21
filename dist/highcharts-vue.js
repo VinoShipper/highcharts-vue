@@ -75,11 +75,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var generateVueComponent = function generateVueComponent(Highcharts) {
   return {
     template: '<div ref="chart"></div>',
-    render: function render(createElement) {
-      return createElement('div', {
-        ref: 'chart'
-      });
-    },
     props: {
       constructorType: {
         type: String,
@@ -124,7 +119,7 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
         !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
       }
     },
-    beforeDestroy: function beforeDestroy() {
+    beforeUnmount: function beforeUnmount() {
       // Destroy chart if exists
       if (this.chart) {
         this.chart.destroy();

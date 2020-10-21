@@ -34,7 +34,7 @@ export class Chart extends _Vue {
     props: ChartPropsObject;
     template: string;
     watch: ChartWatchObject;
-    beforeDestroy: () => void;
+    beforeUnmount: () => void;
     mounted: () => void;
     render: (createElement: CreateElement) => VNode;
 }

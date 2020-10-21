@@ -71,7 +71,7 @@ describe('highcharts-vue tests', () => {
   })
 
   test('Chart should be destroyed when component is destroyed.', () => {
-    wrapper.destroy()
+    wrapper.unmount()
     expect(Highcharts.charts[0]).not.toBeTruthy()
   })
 })

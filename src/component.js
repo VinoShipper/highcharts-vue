@@ -3,9 +3,6 @@ import { copyObject } from '../utils/tools'
 const generateVueComponent = function (Highcharts) {
   return {
     template: '<div ref="chart"></div>',
-    render: createElement => createElement('div', {
-      ref: 'chart'
-    }),
     props: {
       constructorType: {
         type: String,
@@ -50,7 +47,7 @@ const generateVueComponent = function (Highcharts) {
         (!this.options) ? console.warn('The "options" parameter was not passed.') : console.warn(`'${this.constructorType}' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported.`)
       }
     },
-    beforeDestroy () {
+    beforeUnmount () {
       // Destroy chart if exists
       if (this.chart) {
         this.chart.destroy()
